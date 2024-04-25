@@ -5,6 +5,6 @@ export interface IPoem {
   dynasty: string;
   author: string;
   content: string[];
-  translate: string[];
+  translate?: string[];
   tags: string[];
 }

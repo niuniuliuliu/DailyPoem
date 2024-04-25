@@ -1,0 +1,56 @@
+html {
+    font-family: 'Noto Sans SC';
+}
+html,
+body,
+#root,
+.swiper {
+    height: 100%;
+    margin: 0;
+}
+
+.defaultBg {
+    background-image: linear-gradient(to bottom, #fa709a 0%, #fee140 100%);
+}
+
+.main {
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.poem-container {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    .poem-date {
+        text-align: center;
+    }
+    .poem-header {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        margin-top: 30%;
+
+        .poem-header-title {
+            font-weight: 600;
+            font-size: 24px;
+            padding: 10px;
+        }
+    }
+
+    .poem-content {
+        .poem-content-line {
+            text-align: center;
+            line-height: 2rem;
+        }
+    }
+
+    .poem-footer {
+        margin-top: auto;
+        padding: 1rem;
+    }
+}

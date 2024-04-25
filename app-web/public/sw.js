@@ -1,7 +1,8 @@
-var cacheKey = "first-pwa";  //缓存的key，可以添加多个不同的缓存
+var cacheKey = "dailypoem";  //缓存的key，可以添加多个不同的缓存
 
 var cacheList = [   //需要缓存的文件列表
     'index.html',
+    'index.js',
     'icon.png',
     'main.css'
 ];
@@ -61,7 +62,7 @@ self.addEventListener('activate', e => {
     e.waitUntil(
         caches.keys().then(function(keyList) {
             return Promise.all(keyList.map(function(key) {
-                if (key !== cacheName) {
+                if (key !== cacheKey) {
                     console.log('[ServiceWorker] Removing old cache', key);
                     return caches.delete(key);
                 }
@@ -69,34 +70,4 @@ self.addEventListener('activate', e => {
         })
     );
     return self.clients.claim(); //确保底层 Service Worker 的更新立即生效
-});
-
-self.addEventListener('push', function (event) {
-    var payload = event.data ? JSON.parse(event.data.text()) : 'no payload';
-    var title = 'First PWA';
-    event.waitUntil(
-        self.registration.showNotification(title, {
-            body: payload.msg,
-            url: payload.url,
-            icon: payload.icon
-        })
-    );
-});
-
-self.addEventListener('notificationclick', function (event) {
-    event.notification.close();
-    event.waitUntil(
-        clients.matchAll({
-            type: "window"
-        }).then(function (clientList) {
-            for (var i = 0; i < clientList.length; i++) {
-                var client = clientList[i];
-                if (client.url == '/' && 'focus' in client)
-                    return client.focus();
-            }
-            if (clients.openWindow) {
-                return clients.openWindow('http://www.baidu.com');
-            }
-        })
-    );
 });

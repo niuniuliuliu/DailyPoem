@@ -1,5 +1,10 @@
+@font-face{
+    font-family: 'qfxk';
+    src: url('fonts/AiDianGanFengXingKai-2.ttf') format('truetype')
+}
+
 html {
-    font-family: 'Noto Sans SC';
+    font-family: 'qfxk';
 }
 html,
 body,
@@ -9,12 +14,29 @@ body,
     margin: 0;
 }
 .swiper-slide {
-    padding: 1rem;
-    overflow: auto;
+    overflow: hidden;
 }
 
-.defaultBg {
-    background-image: linear-gradient(to bottom, #fa709a 0%, #fee140 100%);
+.bg1 {
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);    
+    background-size: 400% 400%;
+    animation: gradient 20s ease infinite;
+    color: #7a5c5c;
+    .poem-header-title a, .poem-footer a{
+        color: #7a5c5c;
+    }
+}
+
+.corner {
+    position: absolute;
+    top: -25px;
+    right: -75px;
+    z-index: 100;
+    padding: 60px 52px 25px;
+    background-color: #FF9A8B;
+    transform: rotate(45deg);
+    color: #7a5c5c;
 }
 
 .main {
@@ -24,10 +46,12 @@ body,
 }
 
 .poem-container {
-    font-size: 18px;
+    font-size: 22px;
     display: flex;
     flex-direction: column;
-    min-height: 100%;
+    height: 100%;
+    overflow: auto;
+    padding: 1rem;
     .poem-date {
         text-align: center;
     }
@@ -37,11 +61,10 @@ body,
         flex-direction: column;
         align-items: center;
         padding: 1rem;
-        margin-top: 30%;
-
+        margin-top: 20%;
         .poem-header-title {
             font-weight: 600;
-            font-size: 24px;
+            font-size: 30px;
             padding: 10px;
         }
         .poem-header-author {
@@ -58,7 +81,11 @@ body,
     }
 
     .poem-footer {
+        font-size: 18px;
         margin-top: auto;
         padding: 1rem 0;
+        .poem-footer-show {
+            text-align: center;
+        }
     }
 }

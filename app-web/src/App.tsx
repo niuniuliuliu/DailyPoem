@@ -51,7 +51,7 @@ const App = () => {
   }, [loadPoem]);
 
   return (
-    <div className="main defaultBg">
+    <div className="main bg1">
       {poems.length && <Slides poems={poems} />}
     </div>
   );

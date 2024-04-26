@@ -12,7 +12,7 @@ const Slides = ({ poems }: { poems: IPoem[] }) => {
   return (
     <Swiper
       modules={[Virtual]}
-      spaceBetween={50}
+      spaceBetween={0}
       slidesPerView={1}
       // onSlideChange={() => console.log("slide change")}
       // onSwiper={(swiper: any) => console.log(swiper)}

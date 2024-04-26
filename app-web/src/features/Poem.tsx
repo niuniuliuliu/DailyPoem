@@ -6,7 +6,9 @@ import { IPoem } from "./types";
 const Poem = ({ poem }: { poem: IPoem }) => {
   return (
     <div className="poem-container">
-      <div className="poem-date">{poem.date}</div>
+      <div className="corner">
+        <div className="poem-date">{poem.date}</div>
+      </div>
       <PoemHeader poem={poem} />
       <PoemContent poem={poem} />
       <PoemFooter poem={poem} />
